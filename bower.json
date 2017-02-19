@@ -1,0 +1,22 @@
+{
+  "name": "komanda mechty",
+  "description": "makeup in sochi",
+  "main": "",
+  "keywords": [
+    "makeup",
+    "haircut",
+    "stylist"
+  ],
+  "authors": [
+    "i.i."
+  ],
+  "license": "MIT",
+  "homepage": "krem.guru",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

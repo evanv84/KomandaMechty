@@ -1,0 +1,1145 @@
+@import "susy";
+@import "breakpoint";
+
+//variables
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//partials
+@import "buttons";
+
+//fonts
+@import "fonts";
+
+//Susy settings
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  gutters: 0,
+  math: fluid,
+  output: float,
+);
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Myriad Reg', sans-serif;
+	overflow-x: hidden;
+}
+
+section:before {
+	clear: both;
+}
+
+section {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: 'Myriad Cond', sans-serif;
+}
+
+ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul>li {
+  list-style: none;
+  display: inline-block;
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  @include container(90%);
+  
+  @include breakpoint($tablet) {
+    @include container(100%);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.row {
+  clear: both;
+}
+
+header {
+  height: 800px;
+  background: url(../img/header-bg.jpg) center center no-repeat;
+  @include bgs(cover);
+  @include breakpoint($tablet) {
+    background-position: left top;
+    height: 100vh;
+  }
+  
+  nav {
+    background: $gray;
+    color: $gold;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    
+    .menu {
+      @include span(5 first);
+      padding-top: 1.3rem;
+      @include breakpoint($tablet) {
+        display: none;
+      }
+      ul {
+        li {
+          a {
+            color: $gold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            
+            &:hover {
+              color: #FFF;
+            }
+          }
+        }
+      }
+    }
+
+    .logo {
+      @include span(2);
+      @include breakpoint($tablet) {
+        @include span(5);
+      }
+      
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 190px;
+        @include breakpoint($tablet) {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    .contacts {
+      @include span(5 last);
+      text-align: right;
+      padding-top: 0.7rem;
+      @include breakpoint($tablet) {
+        @include span(7 last);
+      }
+      a {
+        color: $gold;
+        vertical-align: middle;
+        &:hover {
+          color: #FFF;
+        }
+        
+        .icons {
+          font-size: 2rem;
+          margin-left: 0.7rem;
+          position: relative;
+          top: 5px;
+        }
+      }
+
+      .email {
+        @include breakpoint($tablet) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .top-content {
+    padding-top: 7rem;
+    position: relative;
+    @include breakpoint($tablet) {
+      padding-top: 16vh;
+    }
+    @include breakpoint($phone) {
+      padding-top: 5vh;
+    }
+
+    
+    .container {
+      position: relative;
+    }
+    
+    p {
+      color: $gold;
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      @include breakpoint($tablet) {
+        font-size: 4vh;
+      }
+
+      @include breakpoint($phone) {
+        font-size: 3.57vh;
+      }
+    }
+
+    h2 {
+      position: absolute;
+      bottom: -240px;
+      left: 0;
+      color: #FFF;
+      @include breakpoint($phone) {
+        bottom: -81px;
+        left: auto;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      @include breakpoint($phone) {
+        font-size: 3vh;
+      }
+    }
+  }
+}
+
+header.header--secondary {
+  height: 500px;
+  background: url(../img/portfolio-header-bg.jpg) center center no-repeat !important;
+  @include bgs(cover);
+  background-attachment: fixed;
+  @include breakpoint($phone) {
+    height: 300px;
+  }
+  
+  .btn {
+    background: $gold;
+    color: #FFF;
+  }
+}
+
+.thank-you {
+  height: 100vh;
+}
+
+#features {
+  background: url(../img/features-bg.jpg) center center no-repeat;
+  @include bgs(cover);
+  color: #FFF;
+  
+  h2 {
+    position: absolute;
+    top: -90px;
+    left: 5%;
+  }
+  
+  .container {
+    
+      .features-col {
+        @include span(3);
+        @include breakpoint($phone) {
+          @include span(12);
+        }
+      }
+
+      .col-text {
+       padding: 2rem 1.5rem 0;
+       
+       @include breakpoint($phone) {
+          padding: 1rem;
+        }
+      }
+
+  }
+}
+
+#services {
+  padding: 60px 0;
+  background: url(../img/services-bg.jpg) center center no-repeat;
+  @include bgs(cover);
+  @include breakpoint($tablet) {
+    background-position: left;
+  }
+  
+  .container {
+
+    .service-col {
+      @include span(3);
+      @include breakpoint($tablet) {
+          @include span(6);
+        }
+      
+      .serv-title {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        position: relative;
+      }
+
+      a {
+        margin-top: 0;
+        color: $gold;
+        border-bottom: 1px dotted $gold;
+      }
+    }
+    
+  }
+}
+
+#team {
+  background: url(../img/team-bg.jpg) center center no-repeat;
+  @include bgs(cover);
+  color: #FFF;
+  padding: 80px 0;
+  
+  .container {
+    
+    .team--fotos {
+      @include span(6 first);
+      @include breakpoint($tablet) {
+        @include span(12);
+      }
+      
+      a {
+        color: #FFF;
+      }
+
+      h4 {
+        font-weight: normal;
+        font-family: 'Myriad Cond', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .prev {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 15px;
+    }
+
+    .next {
+      position: absolute;
+      top: -50px;
+      left: 30px;
+      width: 15px;
+      @include breakpoint($phone) {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .team--desc {
+      @include span(6 last);
+      padding-left: 2rem;
+      @include breakpoint($tablet) {
+        @include span(12);
+        padding-left: 0;
+      }
+      
+      h3 {
+        font-family: 'Myriad Cond', sans-serif;
+        font-size: 4rem;
+        margin-bottom: 0;
+        margin-top: 0;
+        @include breakpoint($tablet) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+#portfolio {
+  background: #FFF;
+  padding: 80px 0;
+  
+  .container {
+
+    .row {
+      text-align: center;
+      
+      .btn {
+        margin-top: 2rem;
+      }
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: $gray;
+      position: relative;
+      margin-bottom: 4rem;
+      &:after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+        @include breakpoint($phone) {
+          width: 100%;
+        }
+      }
+    }
+
+    .portfolio-col {
+      @include span(3);
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      @include breakpoint($tablet) {
+        @include span(6);
+      }
+      @include breakpoint($phone) {
+        @include span(12);
+      }
+      
+      img {
+        margin-bottom: 1rem;
+      }
+      
+      &:nth-child(1) {
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+      }
+      &:nth-child(4) {
+        padding-left: 0.5rem;
+        padding-right: 1rem;
+      }
+    }
+
+    ul.tabs{
+      margin: 0;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li{
+      background: none;
+      color: lighten($gray, 30);
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    ul.tabs li.current{
+      background: $gold;
+      color: $white;
+      font-weight: bold;
+    }
+
+    .tab-content{
+      display: none;
+      position: relative;
+      background: #fff;
+      padding: 2rem 0;
+    }
+
+    .tab-content.current{
+      display: inherit;
+      
+      &:before {
+        content: "";
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        top: 0;
+        background: $gold;
+        -webkit-animation: tab-animation 0.7s ease-out;
+         -moz-animation: tab-animation 0.7s ease-out;
+           -o-animation: tab-animation 0.7s ease-out;
+              animation: tab-animation 0.7s ease-out;
+      }
+    }
+  }
+
+  @keyframes tab-animation {
+    0% {
+      width: 0;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+  @-webkit-keyframes tab-animation {
+    0% {
+      width: 0;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+  @-moz-keyframes tab-animation {
+    0% {
+      width: 0;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+  @-o-keyframes tab-animation {
+    0% {
+      width: 0;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+} 
+
+#celebreties {
+  background: url(../img/celebreties-bg.jpg) right center no-repeat;
+  @include bgs(cover);
+  padding: 80px 0;
+  
+  .container {
+    
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      margin-bottom: 4rem;
+      &:after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+        @include breakpoint($phone) {
+          width: 100%;
+        }
+      }
+    }
+
+    .celeb-col {
+      @include span(3);
+      @include breakpoint($tablet) {
+        @include span(6);
+      }
+      @include breakpoint($phone) {
+        @include span(12);
+      }
+      
+      img {
+        margin-bottom: 1rem;
+      }
+      
+      &:nth-child(3) {
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+      }
+      &:nth-child(4) {
+        padding-left: 0.5rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+} 
+
+#clients {
+  padding: 80px 0;
+  background: $gray;
+  
+  .container {
+    
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      margin-bottom: 4rem;
+      color: #FFF;
+      &:after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+        @include breakpoint($phone) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+#feedback {
+  padding: 80px 0;
+  background: url(../img/feedback-bg.jpg) top right no-repeat;
+  @include bgs(cover);
+  
+  .container {
+    
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      margin-bottom: 4rem;
+      &:after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+        @include breakpoint($phone) {
+          width: 100%;
+        }
+      }
+    }
+
+
+    .fb-col {
+      @include span(4);
+      text-align: justify;
+      @include breakpoint($tablet) {
+        @include span(12);
+      }
+      
+      &:nth-child(2) {
+        padding-left: 0;
+        padding-right: 2rem;
+        @include breakpoint($phone) {
+          padding: 1rem;
+        }
+      }
+
+      &:nth-child(3) {
+        padding-left: 1rem;
+        padding-right: 2rem;
+        @include breakpoint($phone) {
+          padding: 1rem;
+        }
+      }
+
+      &:nth-child(4) {
+        padding-left: 1rem;
+        padding-right: 0;
+        @include breakpoint($phone) {
+          padding: 1rem;
+        }
+      }
+      
+      h4 {
+        font-family: 'Myriad Cond', bgssans-serif;
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        padding-left: 90px;
+        position: relative;
+
+        &:before {
+          content: "";
+          width: 80px;
+          height: 80px;
+          left: 0;
+          top: -19px;
+          border: 1px solid $gold;
+          position: absolute;
+          -webkit-border-radius: 50%;
+                  border-radius: 50%;
+          background: #eee;
+        }
+      }
+
+      .fb-foto-1 {
+        &:before {
+          background: url(../img/fb-foto-1.jpg) center center no-repeat;
+          @include bgs(cover);
+        }
+      }
+
+      .fb-foto-2 {
+        &:before {
+          background: url(../img/fb-foto-2.jpg) center center no-repeat;
+          @include bgs(cover);
+        }
+      }
+
+      .fb-foto-3 {
+        &:before {
+          background: url(../img/fb-foto-3.jpg) center center no-repeat;
+          @include bgs(cover);
+        }
+      }
+
+      .fb-desc {
+        font-family: 'Myriad It', sans-serif;
+        font-style: italic;
+        color: lighten($gray, 30);
+      }
+    }
+  }
+}
+
+#faq {
+  padding: 80px 0;
+  background: url(../img/faq-bg.jpg) right center no-repeat;
+  @include bgs(cover);
+  
+  .container {
+    
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      margin-bottom: 4rem;
+      &:after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+        @include breakpoint($phone) {
+          width: 100%;
+        }
+      }
+    }
+
+    h4 {
+      font-family: 'Myriad Bold', sans-serif;
+      margin-bottom: 0;
+      cursor: pointer;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: $gold;
+        display: block;
+        position: relative;
+        left: 0;
+        top: 5px;
+      }
+    }
+
+    h4.active {
+      color: $gold;
+    }
+
+    p.faq-answer {
+      background: $lightgray;
+      max-height: 0;
+      overflow: hidden;
+      @include tr(0.5s)
+    }
+
+    p.faq-answer.show {
+      padding: 1rem;
+      max-height: 300px;
+      margin-bottom: 2rem;
+      @include tr(0.5s);
+    }
+  }
+}
+
+footer {
+  background: $gray;
+  padding: 40px 0;
+  
+  .container {
+    
+    .logo {
+      @include span(6 first);
+      @include breakpoint($tablet) {
+        @include span(12);
+      }
+      
+      img {
+        width: 180px;
+        @include breakpoint($phone) {
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+      }
+
+    }
+
+    .contacts {
+      @include span(6 last);
+      text-align: right;
+      @include breakpoint($tablet) {
+        @include span(12);
+        text-align: center;
+        padding: 0 4.4rem;
+        line-height: 2;
+      }
+      
+      a {
+        color: #FFF;
+        
+        .icons {
+          font-size: 2rem;
+          margin-left: 1rem;
+          margin-top: 1rem;
+        }
+      }
+
+      .politics {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.remodal {
+  background: url(../img/modal-bg.jpg) center center no-repeat;
+  @include bgs(cover);
+  border-bottom: 3px solid $gold;
+  @include breakpoint($phone) {
+    background-position: left;
+  } 
+
+  .remodal-close {
+    top: -50px;
+    left: 710px;
+    opacity: 0.7;
+    @include tr(0.6s);
+    @include breakpoint($phone) {
+      left: 0;
+      top: 0;
+    }
+
+    &:hover {
+      @include tr(0.6s);
+      @include trnf(rotate(180deg) scale(1.2));
+      @include trnf-o(50% 50%);
+      opacity: 1;
+    }
+  }
+
+  .remodal-close:before {
+    display: none;
+  }
+
+  .remodal-close span:nth-child(1) {
+    position: absolute;
+    top: 16px;
+    left: -2px;
+    height: 2px;
+    width: 40px;
+    background-color: $white;
+    @include trnf(rotate(45deg));
+    @include breakpoint($phone) {
+      background-color: $gold;
+    } 
+  }
+
+  .remodal-close span:nth-child(2) {
+    position: absolute;
+    top: 16px;
+    left: -2px;
+    height: 2px;
+    width: 40px;
+    background-color: $white;
+    @include trnf(rotate(135deg));
+    @include breakpoint($phone) {
+      background-color: $gold;
+    } 
+  }
+
+  .remodal-close:hover span:nth-child(1), .remodal-close:hover span:nth-child(2) {
+    background-color: $gold;
+    @include tr(0.5s);
+  }
+}
+
+.text-modal {
+  max-width: 60%;
+  text-align: left;
+  @include breakpoint($phone) {
+    max-width: 100%;
+  } 
+
+  h4 {
+    font-family: 'Myriad Bold', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+
+  .quote {
+    font-family: 'Myriad It', sans-serif;
+    color: lighten($black, 30);
+    &:before {
+      content: "\f10d ";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      display: inline-block;
+      margin-right: 0.5rem;
+      color: $gold;
+    }
+
+    &:after {
+      content: "\f10e ";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      display: inline-block;
+      margin-left: 0.5rem;
+      color: $gold;
+    }
+  }
+
+}
+
+.law {
+  max-width: 60%;
+  text-align: left;
+  @include breakpoint($phone) {
+    max-width: 100%;
+  } 
+
+  p {
+    font-weight: 300;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+.form-modal {
+  width: 60%;
+  @include breakpoint($phone) {
+    width: 100%;
+  } 
+  .input {
+    input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      outline-color: $gold;
+      border-left: none;
+      border-top: none;
+      border-right: none;
+      border-bottom: 1px solid $gold;
+      background-color: transparent;
+      color: darken($white, 10);
+      text-transform: uppercase;
+    }
+    ::-webkit-input-placeholder {
+       color: darken($white, 10);
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       color: darken($white, 10);  
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: darken($white, 10);  
+    }
+    :-ms-input-placeholder {  
+       color: darken($white, 10);  
+    }
+  } 
+
+  .btn {
+    width: 100%;
+    background-color: $gold;
+    cursor: pointer;
+    border: 1px solid $gold;
+    color: #fff;
+  }
+
+  
+}
+
+.oksana-son {
+  background: url(../img/modal-bg-team-1.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.galina-andriyanova {
+  background: url(../img/modal-bg-team-2.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.diana-urumyan {
+  background: url(../img/modal-bg-team-3.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.natalya-belova {
+  background: url(../img/modal-bg-team-4.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.elena-argunova {
+  background: url(../img/modal-bg-team-5.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.elena-ladeischikova {
+  background: url(../img/modal-bg-team-6.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.kristina-petrova {
+  background: url(../img/modal-bg-team-7.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.kristina-urumyan {
+  background: url(../img/modal-bg-team-8.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.ekaterina-nefedova {
+  background: url(../img/modal-bg-team-9.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.olga-stepanchikova {
+  background: url(../img/modal-bg-team-10.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.olga-tyurina {
+  background: url(../img/modal-bg-team-11.jpg) center center no-repeat;
+  @include bgs(cover);
+  
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+//FANCYBOX styles
+.fancybox-title-float-wrap {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    margin-bottom: -35px;
+    z-index: 8050;
+    text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+    display: inline-block;
+    margin-right: -100%;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 0;
+    text-shadow: 0 1px 2px #222;
+    color: #FFF;
+    font-weight: bold;
+    line-height: 24px;
+    white-space: normal;
+}
